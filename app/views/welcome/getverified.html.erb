@@ -1,24 +1,8 @@
-<h1>Please verify yourself</h1>
-
-<script type="text/javascript">
-      var verifyCallback = function(response) {
-        alert(response);
-      };
-      var widgetId1;
-      var onloadCallback = function() {
-        // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
-        // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
-        widgetId1 = grecaptcha.render('example1', {
-          'sitekey' : "<%= Recaptcha.configuration.public_key %>",
-          'callback' : 'verifyCallback',
-          'theme' : 'light'
-        });
-      };
-</script>
+<h1>Please verify yourself (plain)</h1>
 
 <%=form_tag(welcome_submit_path) do %>
-    <div id="example1"></div>
-    <%= submit_tag "Login", class: 'btn btn-success' %>
+    <%= recaptcha_tags %>
+    <%= submit_tag "Verify", class: 'btn btn-success' %>
 <% end %>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback" async defer></script>
