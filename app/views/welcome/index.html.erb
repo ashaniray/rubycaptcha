@@ -11,7 +11,8 @@
         widgetId1 = grecaptcha.render('example1', {
           'sitekey' : "<%= Recaptcha.configuration.public_key %>",
           'callback' : 'verifyCallback',
-          'theme' : 'light'
+          'theme' : 'dark',
+          'size' : 'compact',
         });
       };
 </script>
@@ -21,4 +22,4 @@
     <%= submit_tag "Verify", class: 'btn btn-success' %>
 <% end %>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=bn" async defer></script>
